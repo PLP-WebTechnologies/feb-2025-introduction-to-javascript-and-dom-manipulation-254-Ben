@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Webpage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2em;
+    }
+    #dynamicText {
+      color: black;
+      font-size: 20px;
+    }
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
+    #extraElement {
+      margin-top: 1em;
+      padding: 1em;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Interactive Demo</h1>
+
+  <p id="dynamicText">Click the buttons below to interact!</p>
+
+  <button onclick="changeText()">Change Text</button>
+  <button onclick="toggleStyle()">Toggle Style</button>
+  <button onclick="toggleElement()">Add/Remove Element</button>
+
+  <script>
+    function changeText() {
+      const textEl = document.getElementById("dynamicText");
+      textEl.textContent = "The text has been changed dynamically!";
+      textEl.style.color = "blue";
+      textEl.style.fontSize = "24px";
+    }
+
+    function toggleStyle() {
+      const textEl = document.getElementById("dynamicText");
+      textEl.classList.toggle("highlight");
+      textEl.style.color = textEl.classList.contains("highlight") ? "red" : "black";
+    }
+
+    function toggleElement() {
+      const existing = document.getElementById("extraElement");
+      if (existing) {
+        existing.remove();
+      } else {
+        const newDiv = document.createElement("div");
+        newDiv.id = "extraElement";
+        newDiv.textContent = "This is a dynamically added element!";
+        document.body.appendChild(newDiv);
+        newDiv.style.backgroundColor = "#f45b69";
+        newDiv.style.padding = "1em";
+      }
+    }
+  </script>
+
+</body>
+</html>
